@@ -33,7 +33,10 @@ def create_ops_app(
     async def healthz(_: web.Request) -> web.Response:
         code = 503 if status.shutting_down else 200
         return web.json_response(
-            {"status": "stopping" if status.shutting_down else "ok"},
+            {
+                "status": "stopping" if status.shutting_down else "ok",
+                "preview": "preview-e2e-20261004",
+            },
             status=code,
         )
 
